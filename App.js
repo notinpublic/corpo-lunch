@@ -8,13 +8,9 @@ function getRandomRestaurant(restaurants) {
   return restaurants[Math.floor(Math.random() * restaurants.length)].name;
 }
 
-console.log(getRandomRestaurant(restaurantData));
-
 const RandomNumber = () => {
   return Math.ceil(Math.random() * 6)
 }
-
-// https://raw.githubusercontent.com/OrganisationMan/Diceroller/main/Images/1.png
 
 const Dice = ({ number }) => {
   return <Image
