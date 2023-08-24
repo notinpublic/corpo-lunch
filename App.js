@@ -1,20 +1,64 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, Image, StyleSheet, View, Text } from 'react-native';
+import { restaurantData } from './src/restaurant-list.js';
+
+function getRandomRestaurant(restaurants) {
+  return restaurants[Math.floor(Math.random() * restaurants.length)].name;
+}
+
+console.log(getRandomRestaurant(restaurantData));
+
+const RandomNumber = () => {
+  return Math.ceil(Math.random() * 6)
+}
+
+// https://raw.githubusercontent.com/OrganisationMan/Diceroller/main/Images/1.png
+
+const Dice = ({ number }) => {
+  return <Image
+    width={200}
+    height={200}
+    source={ { uri: `https://raw.githubusercontent.com/OrganisationMan/Diceroller/main/Images/${number}.png` } }
+  />
+}
+
+const WordDice = ({ restaurant }) => {
+  return <Text>{restaurant}</Text>
+}
+
 
 export default function App() {
+  const [dice, setDice] = useState(RandomNumber())
+  const [word, setWord] = useState(getRandomRestaurant(restaurantData))
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <Dice number={dice} />
+    <WordDice restaurant={word}/>
+
+      <Button
+      title='Dice Roll'
+      onPress={() => {
+        setDice(RandomNumber()),
+        setWord(getRandomRestaurant(restaurantData))
+      }}
+       />
+
       <StatusBar style="auto" />
     </View>
   );
-}
+
+}7
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });
