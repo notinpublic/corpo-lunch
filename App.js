@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, Image, StyleSheet, View, Text } from 'react-native';
 import { restaurantData } from './src/restaurant-list.js';
+import { DiceButton } from './src/components/DiceButton.js'
 
 function getRandomRestaurant(restaurants) {
   return restaurants[Math.floor(Math.random() * restaurants.length)].name;
@@ -38,7 +39,7 @@ export default function App() {
     <Dice number={dice} />
     <WordDice restaurant={word}/>
 
-      <Button
+      <DiceButton
       title='Dice Roll'
       onPress={() => {
         setDice(RandomNumber()),
@@ -50,7 +51,7 @@ export default function App() {
     </View>
   );
 
-}7
+}
 
 const styles = StyleSheet.create({
 
