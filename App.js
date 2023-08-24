@@ -21,7 +21,7 @@ const Dice = ({ number }) => {
 }
 
 const WordDice = ({ restaurant }) => {
-  return <Text>{restaurant}</Text>
+  return <Text className={styles.text}>{restaurant}</Text>
 }
 
 
@@ -50,12 +50,15 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  text: {
+    alignContent: 'left',
+    color: '#fff',
+    font
+  },
 });
